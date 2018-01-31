@@ -27,9 +27,18 @@
 
     <div id="temp">
     </div>
-    <p id="convert"><p>
 
+    <p id="convert"></p>
 
+  </div>
+
+  <div id="modLoc">
+    You can change your location here if needed:
+    <br>
+    <br>New Latitude: <input name="newLat" type="text" maxlength="512" id="newLat" class="searchField"/>
+    <br>
+    <br>New Longitude: <input name="newLong" type="text" maxlength="512" id="newLong" class="searchField"/>
+    <p><button id="changeBut" onclick="changeLoc()">Change</button></p>
   </div>
 </body>
 <script src="scripts.js"></script>

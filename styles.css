@@ -6,7 +6,6 @@
 
 body {
   background-color: #0a2239;
-  margin-top:
 }
 
 h2 {
@@ -21,10 +20,14 @@ button {
 
 button:focus {outline:0;}
 
+input {
+  color: black;
+}
+
 .content {
   width: 50%;
   padding: 20px;
-  margin: 10% auto;
+  margin: 70px auto 20px auto;
   border: 2px solid white;
 }
 
@@ -48,4 +51,14 @@ button:focus {outline:0;}
 #convertLink {
   text-decoration: underline;
   font-size: .6em;
+}
+
+#modLoc {
+  visibility: hidden;
+  font-size: .8em;
+}
+
+#changeBut {
+  font-size: .8em;
+  width: 70px;
 }
