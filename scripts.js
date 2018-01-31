@@ -5,6 +5,7 @@ var weather = {};
 //global variables for lat and long
 var latitude = 0;
 var longitude = 0;
+var displayTemp = 0;
 
 //geolocate funtion to acquire lat and long
 function geoFindMe() {
@@ -36,7 +37,17 @@ function geoFindMe() {
 
 }
 
+function convertToF() {
+  displayTemp = displayTemp * 1.8 + 32
+  document.getElementById('temp').innerHTML = "Temp: " + Math.round(displayTemp) + " F";
+  document.getElementById('convert').innerHTML = '<p id="convertLink" onclick="convertToC()">Change to Celsius</p>';
+}
 
+function convertToC() {
+  displayTemp = (displayTemp - 32) / 1.8;
+  document.getElementById('temp').innerHTML = "Temp: " + Math.round(displayTemp) + " C";
+  document.getElementById('convert').innerHTML = '<p id="convertLink" onclick="convertToF()">Change to Fahrenheit</p>';
+}
 
 //API call to get JSON data for weather info
 function findWeather () {
@@ -49,11 +60,12 @@ function findWeather () {
   request.onload = function() {
     //grab JSON data and place in weather
     weather = request.response;
+    displayTemp = Math.round(weather.main.temp);
     var newURL = weather.weather[0].icon; //get URL for icon image from JSON
     document.getElementById('locationName').innerHTML = "Location: " + weather.name;
     document.getElementById('conditions').innerHTML = "Current conditions: " + weather.weather[0].description;
-    document.getElementById('temp').innerHTML = "Temp: " + weather.main.temp + " C";
+    document.getElementById('temp').innerHTML = "Temp: " + Math.round(weather.main.temp) + " C";
     document.getElementById('icon').innerHTML = "<img src=" + newURL + ">";
-    document.getElementById('convert').innerHTML = "convert to F";
+    document.getElementById('convert').innerHTML = '<p id="convertLink" onclick="convertToF()">Change to Fahrenheit</p>';
   }
 }

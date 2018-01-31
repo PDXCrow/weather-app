@@ -38,6 +38,14 @@ button:focus {outline:0;}
 }
 
 #icon {
-  width: 200px;
-  margin: 0 auto;
+  width: 60px;
+  margin: 10px auto;
+  background-color: #CCC;
+  margin: 1px solid black;
+  border-radius: 30px;
+}
+
+#convertLink {
+  text-decoration: underline;
+  font-size: .6em;
 }
