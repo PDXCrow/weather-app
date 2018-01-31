@@ -1,15 +1,43 @@
 * {
   color: white;
+  font-family: 'Play', sans-serif;
+  text-align: center;
 }
 
 body {
   background-color: #0a2239;
+  margin-top:
+}
+
+h2 {
+  letter-spacing: .2em;
 }
 
 button {
   color: #0a2239;
+  font-size: 14pt;
+  border-radius: 10px;
+}
+
+button:focus {outline:0;}
+
+.content {
+  width: 50%;
+  padding: 20px;
+  margin: 10% auto;
+  border: 2px solid white;
+}
+
+.weather-icon {
+  width: 100px;
+  margin: 0 auto;
+}
+
+#w-icon {
+  width: 100px;
 }
 
 #icon {
   width: 200px;
+  margin: 0 auto;
 }

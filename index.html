@@ -3,16 +3,33 @@
 <head>
   <title>A Cliche Weather App</title>
     <link href="styles.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Play:700" rel="stylesheet">
 </head>
 <body>
+  <div class="content">
+    <h2>The Cliché Weather App</h2>
 
-  <p><button onclick="geoFindMe()">Show my location</button></p>
-  <div id="out"></div>
+    <div class="weather-icon">
+      <img id="w-icon" src="images/weather-icon.png">
+    </div>
 
-  <p><button onclick="findWeather()">Get weather JSON</button></p>
-  <div id="icon">
+    <p><button onclick="geoFindMe()">Get My Current Weather</button></p>
+    <div id="out"></div>
+
+    <div id="icon">
+    </div>
+
+    <div id="locationName">
+    </div>
+
+    <div id="conditions">
+    </div>
+
+    <div id="temp">
+    </div>
+    <p id="convert"><p>
+
+
   </div>
-
-
 </body>
 <script src="scripts.js"></script>
