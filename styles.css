@@ -51,6 +51,7 @@ input {
 #convertLink {
   text-decoration: underline;
   font-size: .6em;
+  cursor: pointer;
 }
 
 #modLoc {
