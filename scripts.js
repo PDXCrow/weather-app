@@ -8,7 +8,7 @@ var longitude = 0;
 var displayTemp = 0;
 
 
-function geoFindMe() {
+var geoFindMe = () => {
   //geolocate request to acquire lat and long
   var output = document.getElementById("out");
 
@@ -18,7 +18,7 @@ function geoFindMe() {
     return;
   }
 
-  function success(position) {
+  var success = (position) => {
     //if geolocate is successful, set and display global lat and long vars
     latitude  = position.coords.latitude;
     longitude = position.coords.longitude;
@@ -31,7 +31,7 @@ function geoFindMe() {
     findWeather();
   }
 
-  function error() {
+  var error = () => {
     //if geolocate not successful, show alert
     output.innerHTML = "Unable to retrieve your location";
   }
@@ -42,7 +42,7 @@ function geoFindMe() {
 }
 
 
-function findWeather () {
+var findWeather = () => {
   //API call to get JSON data for weather info
   var requestURL = 'https://fcc-weather-api.glitch.me/api/current?lat='
   + latitude + '&lon=' + longitude;
@@ -70,9 +70,19 @@ function findWeather () {
     document.getElementById("modLoc").style.visibility= 'visible';
   }
 }
-
+/*
 function convertToF() {
   //convert global display var to Fahrenheit, reset link to convert back to C
+  displayTemp = displayTemp * 1.8 + 32;
+  document.getElementById('temp').innerHTML = "Temp: " + displayTemp.toFixed(1)
+  + " F";
+  document.getElementById('convert').innerHTML =
+  '<p id="convertLink" onclick="convertToC()">Change to Celsius</p>';
+}
+*/
+
+var convertToF = () => {
+//convert global display var to Fahrenheit, reset link to convert back to C
   displayTemp = displayTemp * 1.8 + 32
   document.getElementById('temp').innerHTML = "Temp: " + displayTemp.toFixed(1)
   + " F";
@@ -80,6 +90,7 @@ function convertToF() {
   '<p id="convertLink" onclick="convertToC()">Change to Celsius</p>';
 }
 
+/*
 function convertToC() {
   //convert global display var to Celsius, reset link to convert back to F
   displayTemp = (displayTemp - 32) / 1.8;
@@ -88,8 +99,18 @@ function convertToC() {
   document.getElementById('convert').innerHTML =
   '<p id="convertLink" onclick="convertToF()">Change to Fahrenheit</p>';
 }
+*/
 
-function changeLoc() {
+var convertToC = () => {
+  //convert global display var to Celsius, reset link to convert back to F
+  displayTemp = (displayTemp - 32) / 1.8;
+  document.getElementById('temp').innerHTML = "Temp: " + displayTemp.toFixed(1)
+  + " C";
+  document.getElementById('convert').innerHTML =
+  '<p id="convertLink" onclick="convertToF()">Change to Fahrenheit</p>';
+}
+
+var changeLoc = () => {
   //take user input of new lat and long, resubmit API to get new weather data
   latitude = document.getElementById("newLat").value;
   longitude = document.getElementById("newLong").value;
